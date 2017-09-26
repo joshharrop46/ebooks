@@ -1,0 +1,3 @@
+{% api %}{% for index, item in api %}
+{% if index < 1 %}Read {{item.title | remove '...' |  remove '.' | remove '|' | remove '-' | trim | strtolower | ucfirst }} and Download {{ term  }}. {{item.description | remove '...' |  remove '.' | remove '|' | remove '-' | trim | strtolower | ucfirst }}{% endif %}
+{% endfor %}

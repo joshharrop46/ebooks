@@ -1,0 +1,88 @@
+{% api %}{% image %}{% video %}
+{% for index, item in api %}
+				{% if index < 1 %}
+<h2>{{item.title  | remove '...' |  remove '.' | remove '|' | remove '-' | trim | strtolower | ucfirst }}</h2>
+{% endif %}
+				{% endfor %}
+				<div style="display:block;height:2px;border-bottom:3px solid #DDD;"></div>
+
+
+{% for index, item in api %}
+			{% if index > 2 %}{% if index < 4 %}
+			<p>	
+			Here i will explain about {{ term }}. Many people have talked about {{item.title  | remove '...' |  remove '.' | remove '|' | remove '-' | trim | strtolower | ucfirst }}. But in this post i will explain {{item.description | remove '...' | remove '|'| trim | strtolower | ucfirst }} more clearly than another blog.
+			{% endif %}{% endif %}
+			{% endfor %}			
+			</p>
+<p>
+{% for index, item in api %}{% if index < 2 %}
+{{item.description | remove '...' | remove '.' | remove '-' | trim | strtolower | ucfirst | safe}}.
+{% endif %}
+{% endfor %}
+</p>
+{% for index, item in api %}{% if index < 1 %}
+{% for index, item in images %}{% if index < 1 %}
+<div style="text-align:left">
+	<img src="{{ item.mediaurl }}" height="350" width="250" alt="{{ item.title }}">
+</div>
+{% endif %}
+{% endfor %}
+Read more on <a href="{{ item.title | build_permalink_for "read"  }}/" target="_blank" title="{{item.title  | remove '...' |  remove '.' | remove '-' | trim | strtolower | ucfirst }}">{{item.title  | remove '...' |  remove '.' | remove '|' | remove '-' | trim | strtolower | ucfirst }}</a>.
+{% endif %}
+{% endfor %}
+<br />
+<p>
+{% for index, item in api %}{% if index > 1 %}{% if index < 3 %}
+{{item.description | remove '...' | remove '.' | remove '|' | remove '-' | trim | strtolower | ucfirst | safe}}.
+{% endif %}{% endif %}
+{% endfor %}
+{% for index, item in api %}{% if index > 0 %}{% if index < 2 %}
+Read more on <a href="http://download-ebook.b9ad.pro-us-east-1.openshiftapps.com/{{ item.title | hyphenize }}/" target="_blank" title="{{item.title  | remove '...' |  remove '.' | remove '-' | trim | strtolower | ucfirst }}">{{item.title  | remove '...' |  remove '.' | remove '|' | remove '-' | trim | strtolower | ucfirst }}</a>.
+{% endif %}{% endif %}
+{% endfor %}
+</p>
+{% for index, item in images %}{% if index > 4 %}{% if index < 6 %}
+<div style="text-align:left">
+<img src="{{ item.mediaurl }}" height="320" width="220" alt="{{ item.title }}"><br/><i>{{ item.title }}</i>.
+</div>
+{% endif %}{% endif %}
+{% endfor %}
+
+{% if videos.0.link != '' %}
+			<p>			
+				<iframe class="youtube-player" type="text/html" width="560" height="325" src="http://www.youtube.com/embed/{{ videos.0.link | get_video_id }}" frameborder="0">
+				</iframe>			
+			</p>
+			{% endif %}
+<p>
+{% for index, item in api %}{% if index > 2 %}{% if index < 4 %}
+{{item.description | remove '...' | remove ',' | remove '|' | remove '-' | trim | strtolower | ucfirst | safe}}.
+{% endif %}{% endif %}
+{% endfor %}
+</p>
+<br/>
+<p>
+{% for index, item in api %}{% if index > 2 %}{% if index < 4 %}
+{{item.description | remove '...' | remove '.' | remove '|' | remove '-' | trim | strtolower | ucfirst | safe}}.
+{% endif %}{% endif %}
+{% endfor %}
+{% for index, item in api %}{% if index > 6 %}{% if index < 9 %}
+{{item.description | remove '...' | remove ',' | remove '|' | remove '-' | trim | strtolower | ucfirst | safe}}.
+{% endif %}{% endif %}
+{% endfor %} You can find more explanation in {% for index, item in api %}{% if index > 1 %}{% if index < 3 %}
+<a href="{{ item.title | build_permalink_for "read"  }}/" target="_blank" title="{{item.title  | remove '...' |  remove '.' | remove '-' | trim | strtolower | ucfirst }}">{{item.title  | remove '...' |  remove '.' | remove '|' | remove '-' | trim | strtolower | ucfirst }}</a>.
+{% endif %}{% endif %}
+{% endfor %}
+</p>
+{% for index, item in api %}{% if index > 5 %}{% if index < 7 %}
+<div>Read more on <a href="{{ item.title | build_permalink_for "read"  }}/" target="_blank" title="{{item.title  | remove '...' |  remove '.' | remove '-' | trim | strtolower | ucfirst }}">{{item.title  | remove '...' |  remove '.' | remove '|' | remove '-' | trim | strtolower | ucfirst }}</a>.</div>
+{% endif %}{% endif %}
+{% endfor %}
+
+
+
+{% for index, item in api %}{% if index > 3 %}{% if index < 5 %}
+Above you can read article and ebook that discuss about <strong>{{term}}</strong>.  So it became clear that {{item.description | remove '...' | remove '.' | remove '|' | remove '-' | trim | strtolower | ucfirst | safe}}.
+{% endif %}{% endif %}
+{% endfor %}
+

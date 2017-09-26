@@ -1,0 +1,126 @@
+{% api %}
+<div style='font-size: 12px; text-align: justify;'>
+{% api %}
+<h1>{{ term }}</h1>
+<p>
+{% for index, item in api %}{% if index < 1 %}
+Hello readers, in this article you can get information about {{ term }}. Here we will discuss about <strong>{{item.title | remove '...' |  remove '.' | remove '|' | remove '-' | trim | strtolower | ucfirst }}</strong>. 
+{% for index, item in api %}{% if index < 3 %}
+{{item.description | remove '...' |  remove '.' | remove '|' | remove '-' | trim | strtolower | ucfirst }}.
+
+{% endif %}
+{% endfor %}
+
+{% endif %}
+{% endfor %}
+
+
+
+
+<script>
+function base64_encode(data) {
+  //  discuss at: http://phpjs.org/functions/base64_encode/
+  // original by: Tyler Akins (http://rumkin.com)
+  // improved by: Bayron Guevara
+  // improved by: Thunder.m
+  // improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+  // improved by: Kevin van Zonneveld (http://kevin.vanzonneveld.net)
+  // improved by: Rafał Kukawski (http://kukawski.pl)
+  // bugfixed by: Pellentesque Malesuada
+  //   example 1: base64_encode('Kevin van Zonneveld');
+  //   returns 1: 'S2V2aW4gdmFuIFpvbm5ldmVsZA=='
+  //   example 2: base64_encode('a');
+  //   returns 2: 'YQ=='
+
+  var b64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+  var o1, o2, o3, h1, h2, h3, h4, bits, i = 0,
+    ac = 0,
+    enc = '',
+    tmp_arr = [];
+
+  if (!data) {
+    return data;
+  }
+
+  do { // pack three octets into four hexets
+    o1 = data.charCodeAt(i++);
+    o2 = data.charCodeAt(i++);
+    o3 = data.charCodeAt(i++);
+
+    bits = o1 << 16 | o2 << 8 | o3;
+
+    h1 = bits >> 18 & 0x3f;
+    h2 = bits >> 12 & 0x3f;
+    h3 = bits >> 6 & 0x3f;
+    h4 = bits & 0x3f;
+
+    // use hexets to index into b64, and append result to encoded string
+    tmp_arr[ac++] = b64.charAt(h1) + b64.charAt(h2) + b64.charAt(h3) + b64.charAt(h4);
+  } while (i < data.length);
+
+  enc = tmp_arr.join('');
+
+  var r = data.length % 3;
+
+  return (r ? enc.slice(0, r - 3) : enc) + '==='.slice(r || 3);
+}
+
+</script>
+
+{% for index, item in api %}{% if index < 1 %}
+<br />   
+<dips id="download" title="{{ item.link }}"></dips>
+
+ 
+{% endif %}
+{% endfor %}
+</p>
+<script>
+					var x = document.getElementById("download").title; 
+					var y = base64_encode(x);
+
+				document.write('<a rel="nofollow" href="http://tipswomenbeauty.com/download.php?url=' + y + '">download</a>');
+			</script>
+
+{% for index, item in api %}{% if index > 0 %}{% if index < 3 %}
+<div style="display:block;height:12px;border-bottom:11px solid #DDD;"></div>
+<div style="display:block;height:2px;"></div>
+
+<div align="left">
+<span style="font-size:20px; color: #1b8ede;">{{item.title  | remove '...' | trim | strtolower | ucfirst }}</span><br />
+</div>
+<div align="justify"><strong>Download {{ term }}</strong> {{item.description | remove '...' | trim | strtolower | ucfirst }}.
+<br />
+<a href="{{ item.title | build_permalink_for "read"  }}/" target="_blank" rel="nofollow" title="{{ item.title }}">download ebook</a>
+</div>
+<br />
+			
+
+{% endif %}{% endif %}
+{% endfor %}
+
+
+{% for index, item in api %}{% if index > 2 %}{% if index < 5 %}
+<div style="display:block;height:12px;border-bottom:11px solid #DDD;"></div>
+<div style="display:block;height:2px;"></div>
+
+<a href="{{ item.title | build_permalink_for "read"  }}/" target="_blank"><strong>{{item.title  | remove '...' | trim | strtolower | ucfirst }}</strong></a><br />
+<br />
+{{item.description | remove '...' | trim | strtolower | ucfirst }}.
+{% for index, item in api %}{% if index > 3 %}{% if index < 5 %}
+<strong>{{term}}</strong>,  {{item.description | remove '...' | remove '.' | remove '|' | remove '-' | trim | strtolower | ucfirst | safe}}.
+{% endif %}{% endif %}
+{% endfor %}
+<br />
+<br />
+PDF File Name: {{item.title  | remove '...' | trim | strtolower | ucfirst }}<br />
+
+
+
+<br />
+ 
+{% endif %}{% endif %}
+{% endfor %}
+
+
+

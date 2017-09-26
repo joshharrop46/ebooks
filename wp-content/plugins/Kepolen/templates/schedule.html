@@ -1,0 +1,43 @@
+{% api %}
+<div style='font-size: 13px; text-align: justify;'>
+<p>
+{% for index, item in api %}{% if index < 1 %}
+Here you can get all <strong>information about {{ term }}</strong>. This will also answer your question about <strong>{{item.title | remove '...' |  remove '.' | remove '|' | remove '-' | trim | strtolower | ucfirst }}</strong>. 
+{% for index, item in api %}{% if index < 2 %}
+{{item.description | remove '...' |  remove '.' | remove '|' | remove '-' | trim | strtolower | ucfirst }}.
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endfor %}
+</p>
+{% for index, item in api %}{% if index > 1 %}{% if index < 3 %}
+{{item.description | remove '...' |  remove '.' | remove '|' | remove '-' | trim | strtolower | ucfirst }}.
+{% endif %}{% endif %}
+{% endfor %}
+</div>
+<br/>
+<h2>Complete Explanation For {{ term }}</h2>
+
+{% for index, item in api %}{% if index > 0 %}{% if index < 2 %}
+<div align="left">
+<span style="font-size:20px; color: #dd3c42;">{{item.title  | remove '...' | trim | strtolower | ucfirst }}</span><br />
+</div>
+<div align="justify">Download {{ term }} {{item.description | remove '...' | trim | strtolower | ucfirst }}.
+<br />
+<a href="{{ item.title | build_permalink_for "read"  }}/" target="_blank" title="{{ item.title }}">download pdf</a>
+</div>
+<br />
+{% endif %}{% endif %}
+{% endfor %}
+
+{% for index, item in api %}{% if index > 1 %}{% if index < 3 %}
+<div align="left">
+<span style="font-size:20px; color: #dd3c42;">{{item.title  | remove '...' | trim | strtolower | ucfirst }}</span><br />
+</div>
+<div align="justify">{{ term }} download, {{item.description | remove '...' | trim | strtolower | ucfirst }}.
+<br />
+<a href="{{ item.title | build_permalink_for "read"  }}/" target="_blank" title="{{ item.title }}">download pdf</a>
+</div>
+<br />
+{% endif %}{% endif %}
+{% endfor %}

@@ -1,0 +1,65 @@
+{% api %}
+
+
+
+
+</p>
+
+
+<div style="display:block;height:11px;border-bottom:11px solid #dd3c42;"></div>
+{% for index, item in api %}{% if index > 0 %}{% if index < 3 %}
+<div align="left">
+<span style="font-size:20px; color: #1b8ede;">{{item.title  | remove '...' | trim | strtolower | ucfirst }}</span><br />
+</div>
+<div align="justify"><strong>Download {{ term }}</strong> {{item.description | remove '...' | trim | strtolower | ucfirst }}.
+<br />
+<a href="{{ item.title | build_permalink_for "read"  }}/" target="_blank" title="{{ item.title }}">pdf download</a>
+</div>
+<br />
+			
+<div style="display:block;height:2px;border-bottom:1px solid #DDD;"></div> 
+{% endif %}{% endif %}
+{% endfor %}
+
+{% for index, item in api %}{% if index > 2 %}{% if index < 5 %}
+<div align="left">
+<span style="font-size:20px; color: #1b8ede;">{{item.title  | remove '...' | trim | strtolower | ucfirst }}</span><br />
+</div>
+<div align="justify">Download <strong>{{ term }}</strong> {{item.description | remove '...' | trim | strtolower | ucfirst }}.<br />
+<a href="http://download-ebook.b9ad.pro-us-east-1.openshiftapps.com/{{ item.title | hyphenize }}/" target="_blank" title="{{ item.title }}">pdf download</a>
+</div>
+
+
+<br />
+			
+<div style="display:block;height:2px;border-bottom:1px solid #DDD;"></div> 
+{% endif %}{% endif %}
+{% endfor %}
+
+{% for index, item in api %}{% if index > 4 %}{% if index < 6 %}
+<div align="left">
+<span style="font-size:20px; color: #1b8ede;"><a href="{{ item.title | build_permalink_for "read"  }}/" target="_blank" title="{{ item.title }}">{{item.title  | remove '...' | trim | strtolower | ucfirst }}</a></span><br />
+</div>
+<div align="justify">
+ {{item.description | remove '...' | trim | strtolower | ucfirst }}. Read explanation for {{ term }}
+</div>
+<br />			
+<div style="display:block;height:2px;border-bottom:1px solid #DDD;"></div> 
+{% endif %}{% endif %}
+{% endfor %}
+
+
+{% for index, item in api %}{% if index > 5 %}{% if index < 8 %}
+<div align="left">
+<span style="font-size:20px; color: #1b8ede;"><a href="http://download-ebook.b9ad.pro-us-east-1.openshiftapps.com/has/{{ item.title | hyphenize }}/" target="_blank" title="{{ item.title }}">{{item.title  | remove '...' | trim | strtolower | ucfirst }}</a></span>
+</div>
+{{item.description | remove '...' | trim | strtolower | ucfirst }}.
+<br /><br />
+			
+<div style="display:block;height:2px;border-bottom:1px solid #DDD;"></div> 
+{% endif %}{% endif %}
+{% endfor %}
+
+
+
+

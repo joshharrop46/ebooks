@@ -1,0 +1,14 @@
+<div style='font-size: 12px; text-align: justify;'>
+{% api %}
+<h1>{{ term }}</h1>
+<p>
+{% for index, item in api %}{% if index < 1 %}
+Hello readers, in this article you can get information about {{ term }}. Here we will discuss about <strong>{{item.title | remove '...' |  remove '.' | remove '|' | remove '-' | trim | strtolower | ucfirst }}</strong>. 
+{% for index, item in api %}{% if index < 3 %}
+{{item.description | remove '...' |  remove '.' | remove '|' | remove '-' | trim | strtolower | ucfirst }}.
+{% endif %}
+{% endfor %}
+
+
+{% endif %}
+{% endfor %}

@@ -1,0 +1,3 @@
+<ul>{% for index, term in terms %}
+<li><a href="{{ term | build_permalink_for 'read' }}/" rel="nofollow">{{ term }}</a></li> 
+{% endfor%}</ul>

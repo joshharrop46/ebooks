@@ -1,0 +1,17 @@
+<div style='font-size: 12px; text-align: justify;'>
+{% api %}
+<h1>{{ term }}</h1>
+<p>
+{% for index, item in api %}{% if index < 1 %}
+Read article that related about {{ term }}. Here we will <strong>discuss about {{item.title | remove '...' |  remove '.' | remove '|' | remove '-' | trim | strtolower | ucfirst }}</strong>. 
+{% for index, item in api %}{% if index < 3 %}
+{{item.description | remove '...' |  remove '.' | remove '|' | remove '-' | trim | strtolower | ucfirst }}.
+
+{% endif %}
+{% endfor %}
+<center><iframe src="http://docs.google.com/gview?url={{ item.link }}&embedded=true" style="width:680px; height:550px;" frameborder="0"></iframe></center><br />
+Source File: {{ item.link | host }}</span><br />
+{% endif %}
+{% endfor %}
+
+</div>

@@ -1,0 +1,10 @@
+{% api %}{% image %}
+
+<div style="font-size: 12px; text-align: justify;">
+<u>Download Latest {{ term | ucwords }}</u>, {% for index, item in api %}
+				{% if index > 1 %}{% if index < 5 %}
+					{{item.title  | remove '...' | trim | strtolower | ucfirst }}, {{item.description | remove '...' | trim | strtolower | ucfirst }},
+				{% endif %}{% endif %}
+				{% endfor %}. 
+</div> 
+        

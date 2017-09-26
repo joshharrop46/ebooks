@@ -1,0 +1,17 @@
+{% api %}{% image %}
+
+<div style="font-size: 12px; text-align: justify;">
+
+<div class="textwidget"><div style="display:block;height:2px;border-bottom:1px solid #DDD;"></div>
+<div style="display:block;height:2px;"></div>
+ 
+{% for index, item in api %}
+				{% if index > 1 %}{% if index < 5 %}
+					{{item.title  | remove '...' | trim | strtolower | ucfirst }}, {{item.description | remove '...' | trim | strtolower | ucfirst }},
+				{% endif %}{% endif %}
+				{% endfor %}<u>Download {{ term | ucwords }}</u>. 
+
+ 	
+
+</div> </div>
+        
